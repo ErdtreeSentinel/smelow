@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Полезные ссылки</title>
+    <!-- Подключение шрифта Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      /* =========================== */
+      /* CSS-переменные и темы       */
+      /* =========================== */
+      :root {
+        --bg: #ffffff;
+        --fg: #20232a;
+        --card-bg: #f5f5f5;
+        --card-hover: #e8e8e8;
+        --accent: #61dafb;
+        --transition: 0.3s ease;
+        --radius-pill: 9999px;
+        --btn-width: 150px;
+        --header-bg: #f5f5f5;
+      }
+      [data-theme="dark"] {
+        --bg: #20232a;
+        --fg: #61dafb;
+        --card-bg: #282c34;
+        --card-hover: #333842;
+        --header-bg: #333842;
+      }
+
+      /* =========================== */
+      /* Базовые стили               */
+      /* =========================== */
+      * {
+        box-sizing: border-box;
+        font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        color: var(--fg);
+        transition: background var(--transition), color var(--transition);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+      }
+
+      /* =========================== */
+      /* Шапка с кнопками            */
+      /* =========================== */
+      header {
+        width: 100%;
+        padding: 1rem;
+        background: var(--header-bg);
+      }
+      .header-actions {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: space-around;
+      }
+      .github-btn {
+        background: var(--accent);
+        color: var(--bg);
+        border: none;
+        border-radius: var(--radius-pill);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 1rem;
+        font-weight: 400;
+        width: var(--btn-width);
+        text-align: center;
+        cursor: pointer;
+        transition: opacity var(--transition);
+        text-decoration: none;
+      }
+      .github-btn:hover {
+        opacity: 0.8;
+      }
+
+      #theme-toggle {
+        background: var(--accent);
+        color: var(--bg);
+        border: none;
+        border-radius: var(--radius-pill);
+        padding: 0.4rem 0.8rem;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 400;
+        width: var(--btn-width);
+        text-align: center;
+        transition: opacity var(--transition);
+      }
+      [data-theme="dark"] #theme-toggle {
+        background: var(--fg);
+        color: var(--bg);
+      }
+      #theme-toggle:hover {
+        opacity: 0.8;
+      }
+
+      /* =========================== */
+      /* Секция обратного отсчёта    */
+      /* =========================== */
+      .countdown-section {
+        text-align: center;
+        margin: 1rem 0;
+      }
+      .countdown-section h2 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 500;
+      }
+      #countdown-timer {
+        margin-top: 0.25rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--accent);
+      }
+
+      /* =========================== */
+      /* Заголовок страницы          */
+      /* =========================== */
+      .main-title {
+        text-align: center;
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+
+      /* =========================== */
+      /* Сетка ссылок                */
+      /* =========================== */
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 1rem 2rem;
+        width: 100%;
+        max-width: 800px;
+      }
+
+      /* =========================== */
+      /* Карточка ссылки             */
+      /* =========================== */
+      .card {
+        background: var(--card-bg);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        cursor: pointer;
+        transition: background var(--transition), transform var(--transition);
+      }
+      .card:hover {
+        background: var(--card-hover);
+        transform: translateY(-2px);
+      }
+      .card img {
+        width: 24px;
+        height: 24px;
+        margin-right: 0.75rem;
+      }
+      .card-content {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .copy-btn {
+        background: var(--accent);
+        color: var(--bg);
+        border: none;
+        border-radius: var(--radius-pill);
+        padding: 0.4rem 0.8rem;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 400;
+        transition: opacity var(--transition);
+        width: var(--btn-width);
+        text-align: center;
+      }
+      .copy-btn:active {
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-actions">
+        <a href="https://github.com/ErdtreeSentinel/smelow" target="_blank" class="github-btn" aria-label="Код">
+          <svg viewBox="0 0 128 128" style="height: 20px">
+            <g fill="#181616">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"
+              ></path>
+              <path
+                d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm2.446 2.729c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zM31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm3.261 3.361c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm4.5 1.951c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm4.943.361c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm4.598-.782c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0"
+              ></path>
+            </g>
+          </svg>
+          <span>Исходники</span>
+        </a>
+        <button id="theme-toggle" aria-label="Переключить тему">Тема</button>
+      </div>
+    </header>
+
+    <section class="countdown-section">
+      <h2>До Смелова осталось:</h2>
+      <div id="countdown-timer"></div>
+    </section>
+
+    <h1 class="main-title">Полезные ссылки</h1>
+
+    <main id="links-grid" class="grid-container"></main>
+
+    <script>
+      // ===========================
+      // Обратный отсчёт до 06.06.2025
+      // ===========================
+      function updateCountdown() {
+        const now = new Date();
+        const target = new Date("2025-06-06T00:00:00");
+        const section = document.querySelector(".countdown-section");
+        const timerElem = document.getElementById("countdown-timer");
+        const diff = target - now;
+
+        if (diff < 0) {
+          section.style.display = "none";
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        if (days === 0) {
+          timerElem.innerHTML = `
+    <img
+      src="smelov.jpg"
+      width="400px"
+      alt="Все, пиздец!"
+      style="max-width: 100%; height: auto;"
+    />
+  `;
+          return;
+        }
+
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        timerElem.textContent = `${days} дней, ${hours} часов, ${minutes} минут, ${seconds} секунд`;
+      }
+
+      // Инициализация и интервал
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // ===========================
+      // Тема: загрузка и переключение
+      // ===========================
+      const storedTheme = localStorage.getItem("theme");
+      if (storedTheme) {
+        document.documentElement.setAttribute("data-theme", storedTheme);
+      } else {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
+      }
+      document.getElementById("theme-toggle").addEventListener("click", () => {
+        const curr = document.documentElement.getAttribute("data-theme");
+        const next = curr === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+      });
+
+      // ===========================
+      // Ссылки: конфигурация
+      // ===========================
+      const links = [
+        { name: "Расписание", url: "https://it.belstu.by/studentam/uchebnyj-process" },
+        { name: "Система дистанционного обучения", url: "https://dist.belstu.by/" },
+        {
+          name: "Diskstation",
+          url: "https://diskstation.belstu.by/",
+          icon: "https://diskstation.belstu.by:5001/webman/resources/images/icon_dsm_64.png?v=40438",
+        },
+      ];
+
+      const TEXT_COPY = "Копировать";
+      const TEXT_COPIED = "Скопировано!";
+      const TEXT_ERROR = "Ошибка";
+      const COPY_MSG_DURATION = 1500;
+
+      const grid = document.getElementById("links-grid");
+      links.forEach((item) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.onclick = () => window.open(item.url, "_blank");
+
+        const img = document.createElement("img");
+
+        img.src = item.icon || `https://www.google.com/s2/favicons?domain=${new URL(item.url).hostname}&sz=64`;
+        img.alt = "";
+
+        const content = document.createElement("div");
+        content.className = "card-content";
+
+        const title = document.createElement("span");
+        title.textContent = item.name;
+
+        const copyBtn = document.createElement("button");
+        copyBtn.className = "copy-btn";
+        copyBtn.textContent = TEXT_COPY;
+        copyBtn.onclick = (e) => {
+          e.stopPropagation();
+          navigator.clipboard
+            .writeText(item.url)
+            .then(() => {
+              copyBtn.textContent = TEXT_COPIED;
+            })
+            .catch(() => {
+              copyBtn.textContent = TEXT_ERROR;
+            })
+            .finally(() => {
+              setTimeout(() => {
+                copyBtn.textContent = TEXT_COPY;
+              }, COPY_MSG_DURATION);
+            });
+        };
+
+        content.append(title, copyBtn);
+        card.append(img, content);
+        grid.append(card);
+      });
+    </script>
+  </body>
+</html>
