@@ -7,196 +7,10 @@
     <!-- Подключение шрифта Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-
-    <style>
-      /* =========================== */
-      /* CSS-переменные и темы       */
-      /* =========================== */
-      :root {
-        --bg: #ffffff;
-        --fg: #20232a;
-        --card-bg: #f5f5f5;
-        --card-hover: #e8e8e8;
-        --accent: #61dafb;
-        --transition: 0.3s ease;
-        --radius-pill: 9999px;
-        --btn-width: 150px;
-        --header-bg: #f5f5f5;
-      }
-      [data-theme="dark"] {
-        --bg: #20232a;
-        --fg: #61dafb;
-        --card-bg: #282c34;
-        --card-hover: #333842;
-        --header-bg: #333842;
-      }
-
-      .material-symbols-outlined {
-        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 40;
-      }
-
-      /* =========================== */
-      /* Базовые стили               */
-      /* =========================== */
-      * {
-        box-sizing: border-box;
-        font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-      body {
-        margin: 0;
-        padding: 0;
-        background: var(--bg);
-        color: var(--fg);
-        transition: background var(--transition), color var(--transition);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        min-height: 100vh;
-      }
-
-      /* =========================== */
-      /* Шапка с кнопками            */
-      /* =========================== */
-      header {
-        width: 100%;
-        padding: 1rem;
-        background: var(--header-bg);
-      }
-      .header-actions {
-        display: flex;
-        gap: 0.5rem;
-        justify-content: space-around;
-      }
-      .github-btn {
-        background: var(--accent);
-        color: var(--bg);
-        border: none;
-        border-radius: var(--radius-pill);
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.4rem 0.8rem;
-        font-size: 1rem;
-        font-weight: 400;
-        width: var(--btn-width);
-        text-align: center;
-        cursor: pointer;
-        transition: opacity var(--transition);
-        text-decoration: none;
-      }
-      .github-btn:hover {
-        opacity: 0.8;
-      }
-
-      #theme-toggle {
-        background: var(--accent);
-        color: var(--bg);
-        border: none;
-        border-radius: var(--radius-pill);
-        padding: 0.4rem 0.8rem;
-        cursor: pointer;
-        font-size: 1rem;
-        font-weight: 400;
-        width: var(--btn-width);
-        text-align: center;
-        transition: opacity var(--transition);
-      }
-      [data-theme="dark"] #theme-toggle {
-        background: var(--fg);
-        color: var(--bg);
-      }
-      #theme-toggle:hover {
-        opacity: 0.8;
-      }
-
-      /* =========================== */
-      /* Секция обратного отсчёта    */
-      /* =========================== */
-      .countdown-section {
-        text-align: center;
-        margin: 1rem 0;
-      }
-      .countdown-section h2 {
-        margin: 0;
-        font-size: 1.25rem;
-        font-weight: 500;
-      }
-      #countdown-timer {
-        margin-top: 0.25rem;
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: var(--accent);
-      }
-
-      /* =========================== */
-      /* Заголовок страницы          */
-      /* =========================== */
-      .main-title {
-        text-align: center;
-        font-size: 1.5rem;
-        font-weight: 500;
-      }
-
-      /* =========================== */
-      /* Сетка ссылок                */
-      /* =========================== */
-      .grid-container {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 0 1rem 2rem;
-        width: 100%;
-        max-width: 800px;
-      }
-
-      /* =========================== */
-      /* Карточка ссылки             */
-      /* =========================== */
-      .card {
-        background: var(--card-bg);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        padding: 1rem;
-        cursor: pointer;
-        transition: background var(--transition), transform var(--transition);
-      }
-      .card:hover {
-        background: var(--card-hover);
-        transform: translateY(-2px);
-      }
-      .card img {
-        width: 24px;
-        height: 24px;
-        margin-right: 0.75rem;
-      }
-      .card-content {
-        flex: 1;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .copy-btn {
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0.4rem;
-        border-radius: 50%;
-        transition: background 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .copy-btn:hover {
-        background: rgba(0, 0, 0, 0.1);
-      }
-
-      .copy-btn .material-symbols-outlined {
-        font-size: 24px;
-        color: var(--fg);
-      }
-    </style>
+    <link href="styles/base.css" rel="stylesheet" />
+    <link href="styles/countdown.css" rel="stylesheet" />
+    <link href="styles/links.css" rel="stylesheet" />
+    <link href="styles/calculator.css" rel="stylesheet" />
   </head>
   <body>
     <header>
@@ -229,46 +43,26 @@
 
     <main id="links-grid" class="grid-container"></main>
 
+    <!-- Переключатель для калькулятора -->
+    <button id="avg-toggle">Показать калькулятор среднего</button>
+
+    <!-- Блок калькулятора среднего -->
+    <section id="avg-section">
+      <div>
+        <label for="avg-count">Количество элементов:</label>
+        <select id="avg-count">
+          <!-- Опции JS -->
+        </select>
+      </div>
+      <div id="avg-inputs"></div>
+      <div id="avg-result">Среднее: —</div>
+    </section>
+
+    <script src="js/countdown.js"></script>
+    <script src="js/links.js"></script>
+    <script src="js/calculator.js"></script>
+
     <script>
-      // ===========================
-      // Обратный отсчёт до 06.06.2025
-      // ===========================
-      function updateCountdown() {
-        const now = new Date();
-        const target = new Date("2025-06-06T00:00:00");
-        const section = document.querySelector(".countdown-section");
-        const timerElem = document.getElementById("countdown-timer");
-        const diff = target - now;
-
-        if (diff < 0) {
-          section.style.display = "none";
-          return;
-        }
-
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        if (days === 0) {
-          timerElem.innerHTML = `
-    <img
-      src="smelov.jpg"
-      width="400px"
-      alt="Все, пиздец!"
-      style="max-width: 100%; height: auto;"
-    />
-  `;
-          return;
-        }
-
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        timerElem.textContent = `${days} дней, ${hours} часов, ${minutes} минут, ${seconds} секунд`;
-      }
-
-      // Инициализация и интервал
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-
       // ===========================
       // Тема: загрузка и переключение
       // ===========================
@@ -284,70 +78,6 @@
         const next = curr === "dark" ? "light" : "dark";
         document.documentElement.setAttribute("data-theme", next);
         localStorage.setItem("theme", next);
-      });
-
-      // ===========================
-      // Ссылки: конфигурация
-      // ===========================
-      const links = [
-        {
-          name: "Готовимся к смелову",
-          url: "https://docs.google.com/document/d/1lAASTlyIdZdBzEUxp8GuiGcyJnGwWQtoR7YZ5vCSND4/edit?tab=t.0",
-        },
-        { name: "Расписание", url: "https://it.belstu.by/studentam/uchebnyj-process" },
-        { name: "Система дистанционного обучения", url: "https://dist.belstu.by/" },
-        {
-          name: "Diskstation",
-          url: "https://diskstation.belstu.by/",
-          icon: "https://diskstation.belstu.by:5001/webman/resources/images/icon_dsm_64.png?v=40438",
-        },
-      ];
-
-      const TEXT_COPY = "Копировать";
-      const TEXT_COPIED = "Скопировано!";
-      const TEXT_ERROR = "Ошибка";
-      const COPY_MSG_DURATION = 1500;
-
-      const grid = document.getElementById("links-grid");
-      links.forEach((item) => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.onclick = () => window.open(item.url, "_blank");
-
-        const img = document.createElement("img");
-
-        img.src = item.icon || `https://www.google.com/s2/favicons?domain=${new URL(item.url).hostname}&sz=64`;
-        img.alt = "";
-
-        const content = document.createElement("div");
-        content.className = "card-content";
-
-        const title = document.createElement("span");
-        title.textContent = item.name;
-
-        const copyBtn = document.createElement("button");
-        copyBtn.className = "copy-btn";
-        copyBtn.innerHTML = '<span class="material-symbols-outlined">content_copy</span>';
-        copyBtn.onclick = (e) => {
-          e.stopPropagation();
-          navigator.clipboard
-            .writeText(item.url)
-            .then(() => {
-              copyBtn.innerHTML = '<span class="material-symbols-outlined">check</span>';
-            })
-            .catch(() => {
-              copyBtn.innerHTML = '<span class="material-symbols-outlined">error</span>';
-            })
-            .finally(() => {
-              setTimeout(() => {
-                copyBtn.innerHTML = '<span class="material-symbols-outlined">content_copy</span>';
-              }, COPY_MSG_DURATION);
-            });
-        };
-
-        content.append(title, copyBtn);
-        card.append(img, content);
-        grid.append(card);
       });
     </script>
   </body>

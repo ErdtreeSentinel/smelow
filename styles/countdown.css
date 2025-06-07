@@ -1,0 +1,27 @@
+/* =========================== */
+/* Секция обратного отсчёта    */
+/* =========================== */
+.countdown-section {
+  text-align: center;
+  margin: 1rem 0;
+}
+.countdown-section h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+#countdown-timer {
+  margin-top: 0.25rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* =========================== */
+/* Заголовок страницы          */
+/* =========================== */
+.main-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+}

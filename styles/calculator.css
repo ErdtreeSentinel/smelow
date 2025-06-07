@@ -1,0 +1,75 @@
+/* =========================== */
+/* Блок калькулятора среднего  */
+/* =========================== */
+#avg-toggle {
+  background: none;
+  color: var(--accent);
+  border: none;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+#avg-toggle:hover {
+  color: darken(var(--accent), 10);
+}
+
+.margin-top-8 {
+  margin-top: 8px;
+}
+
+/* Стилизация выпадающего списка */
+#avg-count {
+  width: 100%;
+  max-width: 120px;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  appearance: none;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 5 5-5' fill='%236162fb'/%3E%3C/svg%3E")
+    no-repeat right 0.75rem center/8px 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+}
+
+/* Контейнер для селекта и полей ввода */
+#avg-section {
+  display: none;
+  max-width: 400px; /* 2. фиксированная ширина */
+  width: 100%;
+  margin: 0 auto;
+}
+
+.avg-item {
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* небольшое расстояние между лейблом и инпутом */
+}
+
+/* Стилизация полей ввода чисел */
+#avg-inputs input[type="number"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  -moz-appearance: textfield; /* Убираем стрелки в Firefox */
+}
+/* Убираем стрелки в WebKit */
+#avg-inputs input[type="number"]::-webkit-outer-spin-button,
+#avg-inputs input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Устанавливаем минимальные и максимальные границы через CSS-переменные */
+#avg-inputs input[type="number"] {
+  min-width: 0;
+}
